@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import 'marked';
@@ -11,7 +11,7 @@ declare const marked: any;
   selector: 'app-repos-readme',
   template: '<ng-content></ng-content>'
 })
-export class ReadmeComponent implements OnInit {
+export class ReadmeComponent implements OnInit, AfterViewInit {
 
   constructor(
     private service: ReposService,
@@ -22,6 +22,10 @@ export class ReadmeComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.getReadmeContent(params.username, params.repo);
     });
+  }
+
+  ngAfterViewInit() {
+    this.elem.nativeElement.classList.add('markdown-body');
   }
 
   getReadmeContent(username: string, repo: string) {
