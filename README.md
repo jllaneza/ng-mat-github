@@ -1,5 +1,7 @@
 # ng-mat-github
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jllaneza/ng-mat-github.svg)](https://greenkeeper.io/)
+
 A simple SPA using Angular Material that displays a user’s GitHub projects and lets you view the project’s README.
 
 ## Getting Started 
